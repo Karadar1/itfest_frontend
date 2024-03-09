@@ -17,6 +17,7 @@ import { UserContext } from '../../context/UserContext';
 import BlueLogo from '../../assets/svg/BlueLogo';
 import Navbar from '../../components/Navbar/Navbar';
 import { useLogin } from '../../hooks/useLogin';
+import { PageContainer } from '../HomePage/HomePage.styled';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -105,25 +106,27 @@ export default function Login() {
   return (
     <>
       <Navbar />
-      <MainCard>
-        <FormCard onSubmit={handleLogin}>
-          <BlueLogo />
-          <Title>Login</Title>
-          <div className="InputWrapper">{renderInput(false)}</div>
-          <div className="InputWrapper">{renderInput(true)}</div>
-          <br />
-          <ButtonBox type="submit" disabled={loading}>
-            {loading ? (
-              <TailSpin color="#00BFFF" height={20} width={20} />
-            ) : (
-              'Continue'
-            )}
-          </ButtonBox>
-          <br />
+      <PageContainer>
+        <MainCard>
+          <FormCard onSubmit={handleLogin}>
+            <BlueLogo />
+            <Title>Login</Title>
+            <div className="InputWrapper">{renderInput(false)}</div>
+            <div className="InputWrapper">{renderInput(true)}</div>
+            <br />
+            <ButtonBox type="submit" disabled={loading}>
+              {loading ? (
+                <TailSpin color="#00BFFF" height={20} width={20} />
+              ) : (
+                'Continue'
+              )}
+            </ButtonBox>
+            <br />
 
-          <StyledLink to="/signup">Don&apos;t have an account?</StyledLink>
-        </FormCard>
-      </MainCard>
+            <StyledLink to="/signup">Don&apos;t have an account?</StyledLink>
+          </FormCard>
+        </MainCard>
+      </PageContainer>
     </>
   );
 }

@@ -15,6 +15,8 @@ import {
 } from './SignUp.styled';
 import BlueLogo from '../../assets/svg/BlueLogo';
 import Navbar from '../../components/Navbar/Navbar';
+import { PageContainer } from '../HomePage/HomePage.styled';
+import Footer from 'src/components/Footer/Footer';
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -100,47 +102,49 @@ export default function Signup() {
   return (
     <>
       <Navbar />
-      <MainCard>
-        <FormCard>
-          <BlueLogo />
-          <Title>Sign up</Title>
-          <div className="InputWrapper">
-            <Label htmlFor="username">Username</Label>
-            {renderInput('Username')}
-          </div>
-          <div className="InputWrapper">
-            <Label htmlFor="username">Email</Label>
-            <div className="InputWrapper">{renderInput('Email')}</div>
-          </div>
-          <div className="InputWrapper">
-            <Label htmlFor="username">Role</Label>
-            <DropdownContainer>
-              <select value={selectedRole} onChange={handleRoleChange}>
-                <option value="buyer">Buyer</option>
-                <option value="seller">Seller</option>
-              </select>
-            </DropdownContainer>
-          </div>
-          <div className="InputWrapper">
-            <Label htmlFor="username">Password</Label>
-            <div className="InputWrapper">{renderInput('Password')}</div>
-          </div>
-          <div className="InputWrapper">
-            <Label htmlFor="username">Confirm Password</Label>
-            <div className="InputWrapper InputWrapperSpacer"></div>
-            {renderInput('Confirm Password')}
-          </div>
-          <ButtonBox onClick={handleRegister} disabled={loading}>
-            {loading ? (
-              <TailSpin color="#00BFFF" height={20} width={20} />
-            ) : (
-              'Continue'
-            )}
-          </ButtonBox>
+      <PageContainer>
+        <MainCard>
+          <FormCard>
+            <BlueLogo />
+            <Title>Sign up</Title>
+            <div className="InputWrapper">
+              <Label htmlFor="username">Username</Label>
+              {renderInput('Username')}
+            </div>
+            <div className="InputWrapper">
+              <Label htmlFor="username">Email</Label>
+              <div className="InputWrapper">{renderInput('Email')}</div>
+            </div>
+            <div className="InputWrapper">
+              <Label htmlFor="username">Role</Label>
+              <DropdownContainer>
+                <select value={selectedRole} onChange={handleRoleChange}>
+                  <option value="buyer">Buyer</option>
+                  <option value="seller">Seller</option>
+                </select>
+              </DropdownContainer>
+            </div>
+            <div className="InputWrapper">
+              <Label htmlFor="username">Password</Label>
+              <div className="InputWrapper">{renderInput('Password')}</div>
+            </div>
+            <div className="InputWrapper">
+              <Label htmlFor="username">Confirm Password</Label>
+              <div className="InputWrapper InputWrapperSpacer"></div>
+              {renderInput('Confirm Password')}
+            </div>
+            <ButtonBox onClick={handleRegister} disabled={loading}>
+              {loading ? (
+                <TailSpin color="#00BFFF" height={20} width={20} />
+              ) : (
+                'Continue'
+              )}
+            </ButtonBox>
 
-          <StyledLink to="/login">Already have an account?</StyledLink>
-        </FormCard>
-      </MainCard>
+            <StyledLink to="/login">Already have an account?</StyledLink>
+          </FormCard>
+        </MainCard>
+      </PageContainer>
     </>
   );
 }

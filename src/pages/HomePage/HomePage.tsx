@@ -56,18 +56,14 @@ export default function HomePage() {
           <ButtonsContainer>
             <Link to="/browse">biciclete</Link>
             <Link to="/browse">vinde</Link>
-            <Link to="/browse">vinde</Link>
             {user ? (
-              <Link to="/user">Profile</Link>
+              <Link to="/user">rofile</Link>
             ) : (
               <>
                 <Link to="/login">Log in</Link>
                 <Link to="/signup">Sign up</Link>
               </>
             )}
-            <Link to="/login">log in</Link>
-            <Link to="/signup">sign up</Link>
-            <Link to="/signup">sign up</Link>
           </ButtonsContainer>
         </Header>
         <ParallaxContainer

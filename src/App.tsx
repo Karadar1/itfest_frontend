@@ -11,8 +11,11 @@ import { UserPage } from './pages/UserPage/UserPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import UserSettings from './pages/UserPage/pages/AccountSettings';
 import UserPurchases from './pages/UserPage/pages/MyPurchases';
-import AdminPage from './pages/AminPage/AdminPage';
 import { createGlobalStyle } from 'styled-components'; // Import createGlobalStyle
+import AdminPage from './pages/AdminPage/AdminPage';
+import Footer from './components/Footer/Footer';
+import { PageContainer } from './pages/HomePage/HomePage.styled';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const GlobalStyle = createGlobalStyle`
@@ -37,6 +40,7 @@ function App() {
         <Route path="/user/purchases" element={<UserPurchases />} />
       </Routes>
       <ToastContainer />
+      <Footer />
     </>
   );
 }

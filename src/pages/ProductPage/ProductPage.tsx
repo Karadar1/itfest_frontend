@@ -19,6 +19,7 @@ import {
   AddToCartButton,
 } from './ProductPage.styled';
 import { Typography } from '@mui/material';
+import { PageContainer } from '../HomePage/HomePage.styled';
 
 const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -53,52 +54,54 @@ const ProductPage = () => {
   return (
     <>
       <Navbar />
-      <Container>
-        {loading ? (
-          <LoaderContainer>
-            <TailSpin color="#00BFFF" height={80} width={80} />
-          </LoaderContainer>
-        ) : error ? (
-          <Typography variant="h6" color="error">
-            {error}
-          </Typography>
-        ) : product ? (
-          <>
-            <TopSection>
-              <ImageCarousel>
-                <Carousel>
-                  {product.imageUrl.map((image, index) => (
-                    <CarouselItem
-                      key={index}
-                      image={image}
-                      altText={product.title}
-                    />
-                  ))}
-                </Carousel>
-              </ImageCarousel>
-              <Sidebar>
-                <Typography variant="h4">{product.title}</Typography>
-                <Typography variant="h5">${product.price}</Typography>
-                <Typography variant="subtitle1">
-                  Condition: {product.condition}
+      <PageContainer>
+        <Container>
+          {loading ? (
+            <LoaderContainer>
+              <TailSpin color="#00BFFF" height={80} width={80} />
+            </LoaderContainer>
+          ) : error ? (
+            <Typography variant="h6" color="error">
+              {error}
+            </Typography>
+          ) : product ? (
+            <>
+              <TopSection>
+                <ImageCarousel>
+                  <Carousel>
+                    {product.imageUrl.map((image, index) => (
+                      <CarouselItem
+                        key={index}
+                        image={image}
+                        altText={product.title}
+                      />
+                    ))}
+                  </Carousel>
+                </ImageCarousel>
+                <Sidebar>
+                  <Typography variant="h4">{product.title}</Typography>
+                  <Typography variant="h5">${product.price}</Typography>
+                  <Typography variant="subtitle1">
+                    Condition: {product.condition}
+                  </Typography>
+                  <AddToCartButton onClick={handleAddToCart}>
+                    Add to Cart
+                  </AddToCartButton>
+                </Sidebar>
+              </TopSection>
+              <DescriptionSection>
+                <Typography fontWeight="bold" variant="h4">
+                  Description
                 </Typography>
-                <AddToCartButton onClick={handleAddToCart}>
-                  Add to Cart
-                </AddToCartButton>
-              </Sidebar>
-            </TopSection>
-            <DescriptionSection>
-              <Typography fontWeight="bold" variant="h4">
-                Description
-              </Typography>
-              <Typography variant="body1">{product.description}</Typography>
-            </DescriptionSection>
-            <TechnicalSpecifications />
-          </>
-        ) : (
-          <Typography>Product not found</Typography>
-        )}
-      </Container>
+                <Typography variant="body1">{product.description}</Typography>
+              </DescriptionSection>
+              <TechnicalSpecifications />
+            </>
+          ) : (
+            <Typography>Product not found</Typography>
+          )}
+        </Container>
+      </PageContainer>
     </>
   );
 };

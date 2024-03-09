@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
 
 import React from 'react';
+import { PageContainer } from '../HomePage/HomePage.styled';
 
 export default function AdminPage() {
+  <PageContainer></PageContainer>;
   // const renderInput = (
   //   input_type: 'Model' | 'Description' | 'Price' | 'Image',
   // ) => {

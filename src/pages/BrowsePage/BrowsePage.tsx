@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from 'src/hooks/useProducts';
 import { TailSpin } from 'react-loader-spinner';
-import Navbar from '../../components/Navbar/Navbar';
 import { ProductCard } from 'src/components/ProductCard/ProductCard';
 import {
   Container,
@@ -11,7 +10,8 @@ import {
   LoaderContainer,
 } from './BrowsePage.styled';
 import Footer from 'src/components/Footer/Footer';
-
+import { PageContainer } from 'src/components/PageContainer/PageContainer.style';
+import Navbar from 'src/components/Navbar/Navbar';
 export default function BrowsePage() {
   const navigate = useNavigate();
   const { products, loading, error } = useProducts();
@@ -38,33 +38,38 @@ export default function BrowsePage() {
     }
 
     return (
-      <ProductsContainer>
-        {products.map((product) => (
-          <ProductCard
-            key={product._id}
-            id={product._id}
-            name={product.title}
-            price={product.price}
-            imageUrl={product.imageUrl}
-            onCardClick={goToProductPage}
-          />
-        ))}
-      </ProductsContainer>
+      <PageContainer>
+        <ProductsContainer>
+          {products.map((product) => (
+            <ProductCard
+              key={product._id}
+              id={product._id}
+              name={product.title}
+              price={product.price}
+              imageUrl={product.imageUrl}
+              onCardClick={goToProductPage}
+            />
+          ))}
+        </ProductsContainer>
+      </PageContainer>
     );
   };
 
   return (
-    <Container>
+    <>
       <Navbar />
-      <Label>
-        <p>We insure</p>
-        <h2>
-          QUALITY <span>and</span> MAINTAINABILITY
-        </h2>
-        <p>for the bikes that we sell</p>
-      </Label>
-      {renderContent()}
-      <Footer />
-    </Container>
+      <PageContainer>
+        <Container>
+          <Label>
+            <p>We insure</p>
+            <h2>
+              QUALITY <span>and</span> MAINTAINABILITY
+            </h2>
+            <p>for the bikes that we sell</p>
+          </Label>
+          {renderContent()}
+        </Container>
+      </PageContainer>
+    </>
   );
 }
