@@ -101,7 +101,7 @@ export default function Navbar({
         </ListItem>
 
         <ListItem key={'RentBtn'} disablePadding sx={{}}>
-          <ListItemButton onClick={() => navigate('/')}>
+          <ListItemButton onClick={() => navigate('/rent')}>
             <ListItemText primary={'Rent a bike'} />
           </ListItemButton>
         </ListItem>

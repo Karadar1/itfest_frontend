@@ -6,18 +6,30 @@ import HomePage from './pages/HomePage/HomePage';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/Signup';
 import BrowsePage from './pages/BrowsePage/BrowsePage';
+import RentBike from './pages/RentBike/RentBike';
 import { UserPage } from './pages/UserPage/UserPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import UserSettings from './pages/UserPage/pages/AccountSettings';
 import UserPurchases from './pages/UserPage/pages/MyPurchases';
+import AdminPage from './pages/AminPage/AdminPage';
+import { createGlobalStyle } from 'styled-components'; // Import createGlobalStyle
 
 function App() {
+  const GlobalStyle = createGlobalStyle`
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  `;
+
   return (
     <>
+      <GlobalStyle />
       <Routes>
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/browse" element={<BrowsePage />} />
         <Route path="/product/:productId" element={<ProductPage />} />
+        <Route path="/rent" element={<RentBike />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<UserPage />} />

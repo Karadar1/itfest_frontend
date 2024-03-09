@@ -12,6 +12,7 @@ export const useProducts = () => {
       try {
         const response = await axiosInstance.get<IProduct[]>('/products');
         setProducts(response.data);
+        console.log(response.data);
       } catch (err) {
         setError('Failed to fetch products.');
       } finally {

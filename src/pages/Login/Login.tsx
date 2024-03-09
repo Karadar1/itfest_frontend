@@ -88,7 +88,11 @@ export default function Login() {
       }
 
       toast.success('Login successful. Redirecting...');
-      setTimeout(() => navigate('/browse'), 1000);
+      if (email === 'admin321@123.ro') {
+        setTimeout(() => navigate('/admin'), 1000);
+      } else {
+        setTimeout(() => navigate('/browse'), 1000);
+      }
     } catch (err) {
       let errorMessage = 'An unexpected error occurred.';
       if (err instanceof Error) {

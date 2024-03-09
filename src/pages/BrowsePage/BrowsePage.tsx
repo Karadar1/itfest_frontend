@@ -10,6 +10,7 @@ import {
   ProductsContainer,
   LoaderContainer,
 } from './BrowsePage.styled';
+import Footer from 'src/components/Footer/Footer';
 
 export default function BrowsePage() {
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ export default function BrowsePage() {
         <p>for the bikes that we sell</p>
       </Label>
       {renderContent()}
+      <Footer />
     </Container>
   );
 }

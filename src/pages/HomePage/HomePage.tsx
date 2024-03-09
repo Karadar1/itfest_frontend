@@ -18,8 +18,9 @@ import ScrollableSection from './ScrollableSection';
 import HoomanParallax from '../../assets/images/hooman_parallax.png';
 // @ts-ignore
 import LeavesParallax from '../../assets/images/leaves_parallax.png';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Footer from 'src/components/Footer/Footer';
+import { UserContext } from 'src/context/UserContext';
 
 export default function HomePage() {
   const [hoomanScale, setHoomanScale] = useState(0);
@@ -28,7 +29,7 @@ export default function HomePage() {
   const [brightness, setBrightness] = useState(0);
   const [titleSpacing, setTitleSpacing] = useState(0);
   const [titleTranslateY, setTitleTranslateY] = useState(0);
-
+  const user = useContext(UserContext);
   useEffect(() => {
     setHoomanScale(window.scrollY / 7000 + 1);
     setHoomanTranslate(window.scrollY / 95 + 1);
@@ -53,7 +54,19 @@ export default function HomePage() {
         <Header>
           <WhiteLogo />
           <ButtonsContainer>
+            <Link to="/browse">biciclete</Link>
+            <Link to="/browse">vinde</Link>
+            <Link to="/browse">vinde</Link>
+            {user ? (
+              <Link to="/user">Profile</Link>
+            ) : (
+              <>
+                <Link to="/login">Log in</Link>
+                <Link to="/signup">Sign up</Link>
+              </>
+            )}
             <Link to="/login">log in</Link>
+            <Link to="/signup">sign up</Link>
             <Link to="/signup">sign up</Link>
           </ButtonsContainer>
         </Header>
