@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+//Material Ui imports
+import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
@@ -7,18 +9,15 @@ import { useNavigate } from 'react-router';
 import {
   LeftSideMenu,
   ListMember,
-  ListMenu,
   RigthContainer,
-  MainContainer,
   UserPhoto,
   UsernameContainer,
-  RigthContainerMain,
   StyledLink,
+  PageContent,
   // UsernameContainer
 } from './UserPage.styled';
 import AccountSettings from './pages/AccountSettings';
 import MyPurchases from './pages/MyPurchases';
-import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { PageContainer } from '../../components/PageContainer/PageContainer';
 
@@ -41,28 +40,20 @@ export const UserPage = () => {
   if (userData && userData.isAuthenticated) {
     return (
       <>
-        <Navbar />
         <PageContainer>
-          <MainContainer>
+          <Navbar />
+          <PageContent>
             <LeftSideMenu>
               <UserPhoto>
-                <img
-                  src={userCirclePhoto}
-                  style={{
-                    borderRadius: '50%',
-                    width: '110px',
-                    height: '110px',
-                  }}
+                <AccountCircleSharpIcon
+                  style={{ height: '70px', width: '70px', color: '#fff' }}
                 />
-                <UsernameContainer>
+                <UsernameContainer style={{ color: '#fff' }}>
                   Username: {userData.user?.username}{' '}
                 </UsernameContainer>
               </UserPhoto>
               <ListMember>
                 <StyledLink to="/user/settings">Account Settings</StyledLink>
-              </ListMember>
-              <ListMember>
-                <StyledLink to="/user/purchases">Purchases</StyledLink>
               </ListMember>
               <ListMember>
                 <StyledLink to="/login" onClick={() => handleSignOut()}>
@@ -71,12 +62,9 @@ export const UserPage = () => {
               </ListMember>
             </LeftSideMenu>
             <RigthContainer>
-              <RigthContainerMain>
-                <h1>Your last purchases</h1>
-                <Button>See more</Button>
-              </RigthContainerMain>
+              <h2>Purchases History</h2>
             </RigthContainer>
-          </MainContainer>
+          </PageContent>
         </PageContainer>
       </>
     );

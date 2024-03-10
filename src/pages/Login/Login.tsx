@@ -17,7 +17,7 @@ import { UserContext } from '../../context/UserContext';
 import BlueLogo from '../../assets/svg/BlueLogo';
 import Navbar from '../../components/Navbar/Navbar';
 import { useLogin } from '../../hooks/useLogin';
-import { PageContainer } from '../HomePage/HomePage.styled';
+import { PageContainer } from 'src/components/PageContainer/PageContainer';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -105,8 +105,8 @@ export default function Login() {
 
   return (
     <>
-      <Navbar />
       <PageContainer>
+        <Navbar />
         <MainCard>
           <FormCard onSubmit={handleLogin}>
             <BlueLogo />

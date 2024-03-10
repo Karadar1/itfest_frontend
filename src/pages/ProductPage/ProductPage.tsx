@@ -19,7 +19,7 @@ import {
   AddToCartButton,
 } from './ProductPage.styled';
 import { Typography } from '@mui/material';
-import { PageContainer } from '../HomePage/HomePage.styled';
+import { PageContainer } from 'src/components/PageContainer/PageContainer';
 
 const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();

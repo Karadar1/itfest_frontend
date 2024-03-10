@@ -5,7 +5,6 @@ import {
   Header,
   HeroSection,
   HeroTitle,
-  PageContainer,
   ParallaxContainer,
 } from './HomePage.styled';
 // @ts-ignore
@@ -21,6 +20,7 @@ import LeavesParallax from '../../assets/images/leaves_parallax.png';
 import { useEffect, useState, useContext } from 'react';
 import Footer from 'src/components/Footer/Footer';
 import { UserContext } from 'src/context/UserContext';
+import { PageContainer } from 'src/components/PageContainer/PageContainer';
 
 export default function HomePage() {
   const [hoomanScale, setHoomanScale] = useState(0);
@@ -57,7 +57,7 @@ export default function HomePage() {
             <Link to="/browse">biciclete</Link>
             <Link to="/browse">vinde</Link>
             {user ? (
-              <Link to="/user">rofile</Link>
+              <Link to="/user">profile</Link>
             ) : (
               <>
                 <Link to="/login">Log in</Link>
@@ -86,7 +86,6 @@ export default function HomePage() {
         <Link to="">Rent your desired bike</Link>
         <Link to="">Sell your bike</Link>
       </Stripe> */}
-      <Footer />
     </PageContainer>
   );
 }

@@ -10,8 +10,8 @@ import {
   LoaderContainer,
 } from './BrowsePage.styled';
 import Footer from 'src/components/Footer/Footer';
-import { PageContainer } from 'src/components/PageContainer/PageContainer.style';
 import Navbar from 'src/components/Navbar/Navbar';
+import { PageContainer } from 'src/components/PageContainer/PageContainer';
 export default function BrowsePage() {
   const navigate = useNavigate();
   const { products, loading, error } = useProducts();
@@ -39,18 +39,16 @@ export default function BrowsePage() {
 
     return (
       <PageContainer>
-        <ProductsContainer>
-          {products.map((product) => (
-            <ProductCard
-              key={product._id}
-              id={product._id}
-              name={product.title}
-              price={product.price}
-              imageUrl={product.imageUrl}
-              onCardClick={goToProductPage}
-            />
-          ))}
-        </ProductsContainer>
+        {products.map((product) => (
+          <ProductCard
+            key={product._id}
+            id={product._id}
+            name={product.title}
+            price={product.price}
+            imageUrl={product.imageUrl}
+            onCardClick={goToProductPage}
+          />
+        ))}
       </PageContainer>
     );
   };

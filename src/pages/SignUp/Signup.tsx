@@ -15,8 +15,8 @@ import {
 } from './SignUp.styled';
 import BlueLogo from '../../assets/svg/BlueLogo';
 import Navbar from '../../components/Navbar/Navbar';
-import { PageContainer } from '../HomePage/HomePage.styled';
 import Footer from 'src/components/Footer/Footer';
+import { PageContainer } from 'src/components/PageContainer/PageContainer';
 
 export default function Signup() {
   const navigate = useNavigate();

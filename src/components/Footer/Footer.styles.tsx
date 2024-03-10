@@ -6,8 +6,7 @@ export const FooterContainer = styled.div`
   justify-content: space-evenly;
   height: 35vh;
   width: 99.3vw;
-  background-color: #6e7a8f;
-  color: white;
+  background-color: #dad2d8;
 `;
 //Social Links
 export const FooterSocials = styled.div`
