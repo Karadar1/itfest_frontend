@@ -56,12 +56,12 @@ export default function HomePage() {
           <ButtonsContainer>
             <Link to="/browse">biciclete</Link>
             <Link to="/browse">vinde</Link>
-            {user ? (
-              <Link to="/user">profile</Link>
+            {user?.isAuthenticated ? (
+              <Link to="/user">profil</Link>
             ) : (
               <>
-                <Link to="/login">Log in</Link>
-                <Link to="/signup">Sign up</Link>
+                <Link to="/login">log in</Link>
+                <Link to="/signup">sign up</Link>
               </>
             )}
           </ButtonsContainer>

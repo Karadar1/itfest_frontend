@@ -20,7 +20,7 @@ export interface IProduct {
   price: number;
   category: 'bicycle' | 'scooter';
   condition: 'new' | 'used';
-  imageUrl: string[];
+  imageUrl: string;
 }
 
 interface ICartItem {

@@ -13,7 +13,7 @@ interface ProductCardProps {
   id: string;
   name: string;
   price: number;
-  imageUrl: string[];
+  imageUrl: string;
   onCardClick?: (productId: string) => void;
 }
 
@@ -24,7 +24,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   imageUrl,
   onCardClick,
 }) => {
-  const displayImage = imageUrl[0];
+  const displayImage = imageUrl;
   const { dispatch } = useCart();
 
   const handleCardClick = (event: React.MouseEvent) => {
@@ -34,7 +34,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   const handleAddToCart = (event: React.MouseEvent) => {
     event.stopPropagation();
-    if (price > 0 && name && imageUrl.length > 0) {
+    if (price > 0 && name && imageUrl) {
       const item: ICartItem = { id, name, price, imageUrl: displayImage };
       dispatch({ type: 'ADD_ITEM', payload: item });
       toast.success('Item added to cart');

@@ -16,6 +16,7 @@ import AdminPage from './pages/AdminPage/AdminPage';
 import Footer from './components/Footer/Footer';
 import { PageContainer } from './pages/HomePage/HomePage.styled';
 import Navbar from './components/Navbar/Navbar';
+import CartPage from './pages/CartPage/CartPage';
 
 function App() {
   const GlobalStyle = createGlobalStyle`
@@ -38,6 +39,7 @@ function App() {
         <Route path="/user" element={<UserPage />} />
         <Route path="/user/settings" element={<UserSettings />} />
         <Route path="/user/purchases" element={<UserPurchases />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
       <ToastContainer />
       <Footer />

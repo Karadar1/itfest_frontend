@@ -121,6 +121,7 @@ export default function Signup() {
                 <select value={selectedRole} onChange={handleRoleChange}>
                   <option value="buyer">Buyer</option>
                   <option value="seller">Seller</option>
+                  <option value="admin">Admin</option>
                 </select>
               </DropdownContainer>
             </div>

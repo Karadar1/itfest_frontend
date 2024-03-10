@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from 'src/hooks/useProducts';
 import { TailSpin } from 'react-loader-spinner';
+import Navbar from '../../components/Navbar/Navbar';
 import { ProductCard } from 'src/components/ProductCard/ProductCard';
 import {
   Container,
@@ -9,9 +10,8 @@ import {
   ProductsContainer,
   LoaderContainer,
 } from './BrowsePage.styled';
-import Footer from 'src/components/Footer/Footer';
-import Navbar from 'src/components/Navbar/Navbar';
 import { PageContainer } from 'src/components/PageContainer/PageContainer';
+
 export default function BrowsePage() {
   const navigate = useNavigate();
   const { products, loading, error } = useProducts();
@@ -38,7 +38,7 @@ export default function BrowsePage() {
     }
 
     return (
-      <PageContainer>
+      <ProductsContainer>
         {products.map((product) => (
           <ProductCard
             key={product._id}
@@ -49,25 +49,23 @@ export default function BrowsePage() {
             onCardClick={goToProductPage}
           />
         ))}
-      </PageContainer>
+      </ProductsContainer>
     );
   };
 
   return (
-    <>
-      <Navbar />
-      <PageContainer>
-        <Container>
-          <Label>
-            <p>We insure</p>
-            <h2>
-              QUALITY <span>and</span> MAINTAINABILITY
-            </h2>
-            <p>for the bikes that we sell</p>
-          </Label>
-          {renderContent()}
-        </Container>
-      </PageContainer>
-    </>
+    <PageContainer>
+      <Container>
+        <Navbar />
+        <Label>
+          <p>We insure</p>
+          <h2>
+            QUALITY <span>and</span> MAINTAINABILITY
+          </h2>
+          <p>for the bikes that we sell</p>
+        </Label>
+        {renderContent()}
+      </Container>
+    </PageContainer>
   );
 }

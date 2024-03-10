@@ -27,10 +27,7 @@ export const UserPage = () => {
   const userCirclePhoto = 'https://via.placeholder.com/150';
   const navigate = useNavigate();
   const userData = useContext(UserContext);
-
-  console.log(userData?.user);
-
-  useEffect(() => {}, []);
+  console.log(userData?.user?.role);
 
   const handleSignOut = () => {
     userData?.setUser(null);

@@ -33,7 +33,7 @@ const ProductPage = () => {
         id: product._id,
         name: product.title,
         price: product.price,
-        imageUrl: product.imageUrl[0],
+        imageUrl: product.imageUrl,
       };
       dispatch({ type: 'ADD_ITEM', payload: item });
       toast.success('Item added to cart');
@@ -68,15 +68,11 @@ const ProductPage = () => {
             <>
               <TopSection>
                 <ImageCarousel>
-                  <Carousel>
-                    {product.imageUrl.map((image, index) => (
-                      <CarouselItem
-                        key={index}
-                        image={image}
-                        altText={product.title}
-                      />
-                    ))}
-                  </Carousel>
+                  <CarouselItem
+                    key={product._id}
+                    image={product.imageUrl}
+                    altText={product.title}
+                  />
                 </ImageCarousel>
                 <Sidebar>
                   <Typography variant="h4">{product.title}</Typography>

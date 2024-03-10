@@ -89,7 +89,7 @@ export default function Login() {
       }
 
       toast.success('Login successful. Redirecting...');
-      if (email === 'admin321@123.ro') {
+      if (decoded.role === 'admin') {
         setTimeout(() => navigate('/admin'), 1000);
       } else {
         setTimeout(() => navigate('/browse'), 1000);

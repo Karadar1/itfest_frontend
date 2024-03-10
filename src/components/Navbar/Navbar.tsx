@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, RightElements } from './Navbar.styles';
 import BlackLogo from 'src/assets/svg/BlackLogo';
 import MenuButton from 'src/assets/svg/MenuButton';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Drawer,
@@ -14,6 +15,7 @@ import BlueLogo from 'src/assets/svg/BlueLogo';
 import CloseIcon from 'src/assets/svg/CloseIcon';
 import { primaryColor } from 'src/const';
 import { useNavigate } from 'react-router';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
@@ -133,6 +135,16 @@ export default function Navbar({
     <Container scroll={topTransparent ? scroll : 41}>
       <BlackLogo />
       <RightElements>
+        <Link to={'/cart'}>
+          <ShoppingCartIcon
+            style={{
+              color: 'black',
+              height: '32px',
+              width: '32px',
+              marginRight: '20px',
+            }}
+          />
+        </Link>
         <button onClick={toggleDrawer('right', true)}>
           <MenuButton />
         </button>
