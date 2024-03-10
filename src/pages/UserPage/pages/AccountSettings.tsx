@@ -5,6 +5,9 @@ import { UserContext } from '../../../context/UserContext';
 import { Button } from '@mui/material';
 import axios from 'axios';
 import axiosInstance from '../../../api/axiosInstance';
+import { PageContainer } from 'src/components/PageContainer/PageContainer';
+import styled from '@emotion/styled';
+import Navbar from 'src/components/Navbar/Navbar';
 
 export default function AccountSettings() {
   const [username, setUserName] = useState('');
@@ -71,12 +74,37 @@ export default function AccountSettings() {
     }
   };
   console.log(userData);
+  const Title = styled.h1`
+    font-size: 28px; /* Adjust the size as needed */
+    color: #fff; /* This is a dark gray, but customize the color as you like */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px; /* Adds space below the title */
+    padding: 0 10px; /* Ensures the title has some padding on smaller screens */
+  `;
+  const FormCardEdit = styled.div`
+    font-family: 'Montserrat', sans-serif;
+    padding: 2rem 0;
+    margin: auto;
+    width: 100%;
+    min-height: 35rem;
+    max-width: 25rem;
+    background-color: #494949;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 1.5625rem;
+  `;
+
   return (
-    <>
+    <PageContainer>
+      <Navbar />
       {userData && userData.isAuthenticated && (
         <>
           <div>Settings</div>
-          <FormCard>
+          <FormCardEdit>
+            <Title> Change you credentials</Title>
             <div className="InputWrapper">{renderInput('username')}</div>
             <div className="InputWrapper">{renderInput('email')}</div>
             <Button
@@ -88,9 +116,9 @@ export default function AccountSettings() {
             >
               Confirm
             </Button>
-          </FormCard>
+          </FormCardEdit>
         </>
       )}
-    </>
+    </PageContainer>
   );
 }

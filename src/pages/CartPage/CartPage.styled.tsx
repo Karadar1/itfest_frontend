@@ -3,7 +3,8 @@ export const CartContainer = styled.div`
   padding: 20px;
   background: #f5f5f5;
   border-radius: 8px;
-  max-width: 600px;
+  min-width: 25rem;
+  min-height: 35rem;
   margin: auto;
 `;
 
@@ -11,20 +12,20 @@ export const CartItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 15px 0;
   border-bottom: 1px solid #ccc;
 
   &:last-child {
     border-bottom: none;
   }
 `;
-export const TotalPriceInput = styled.div`
+export const TotalPrice = styled.div`
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
-  padding: 10px;
-  margin-top: 20px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin-top: 50px;
+  font-size: 24px;
+  font-weight: 900;
 `;
 
 export const ItemName = styled.span``;

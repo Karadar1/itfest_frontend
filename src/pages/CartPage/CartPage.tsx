@@ -4,7 +4,7 @@ import {
   CartItem,
   ItemName,
   ItemPrice,
-  TotalPriceInput,
+  TotalPrice,
 } from './CartPage.styled';
 import { CartContext } from 'src/context/CartContext';
 import { PageContainer } from 'src/components/PageContainer/PageContainer';
@@ -20,7 +20,7 @@ import { PageContainer } from 'src/components/PageContainer/PageContainer';
 const Cart = () => {
   const cartData = useContext(CartContext);
   const itemData = cartData?.state.items;
-  const [totalPrice, setTotalPrice] = useState('');
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     calculateTotalSum();
@@ -32,6 +32,7 @@ const Cart = () => {
       // sum += parseFloat(String(element.price));
       sum += element.price;
     });
+    setTotalPrice(sum);
   };
 
   console.log(itemData);
@@ -41,9 +42,12 @@ const Cart = () => {
         {itemData?.map((item) => (
           <CartItem key={item.id}>
             <ItemName>{item.name}</ItemName>
-            <ItemPrice>${item.price.toFixed(2)}</ItemPrice>
+            <ItemPrice style={{ marginLeft: '10px' }}>
+              ${item.price.toFixed(2)}
+            </ItemPrice>
           </CartItem>
         ))}
+        <TotalPrice>Total Price: {totalPrice}</TotalPrice>
       </CartContainer>
     </PageContainer>
   );

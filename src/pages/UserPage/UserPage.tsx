@@ -17,7 +17,6 @@ import {
   // UsernameContainer
 } from './UserPage.styled';
 import AccountSettings from './pages/AccountSettings';
-import MyPurchases from './pages/MyPurchases';
 import { useEffect } from 'react';
 import { PageContainer } from '../../components/PageContainer/PageContainer';
 

@@ -10,7 +10,6 @@ import RentBike from './pages/RentBike/RentBike';
 import { UserPage } from './pages/UserPage/UserPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import UserSettings from './pages/UserPage/pages/AccountSettings';
-import UserPurchases from './pages/UserPage/pages/MyPurchases';
 import { createGlobalStyle } from 'styled-components'; // Import createGlobalStyle
 import AdminPage from './pages/AdminPage/AdminPage';
 import Footer from './components/Footer/Footer';
@@ -38,7 +37,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<UserPage />} />
         <Route path="/user/settings" element={<UserSettings />} />
-        <Route path="/user/purchases" element={<UserPurchases />} />
         <Route path="/cart" element={<CartPage />} />
       </Routes>
       <ToastContainer />
